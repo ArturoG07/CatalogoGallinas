@@ -1,0 +1,9 @@
+Cloqueta,3,Leghorn,130,Blanco
+Piolín,2,Rhode Island,38,Rojo
+Doña Gallina,5,Brahma,55,Marrón
+Plumita,1,Wyandotte,18,Negro
+Gigi,4,Sussex,41,Dorado
+Romicia,3,Común,80,Azul
+Propusia,2,Española,4,Azul
+Crobio,5,Ninguna,0,Amarillo
+Romesio,12,Frances,31,Negro

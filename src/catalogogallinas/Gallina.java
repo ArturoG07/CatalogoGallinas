@@ -45,14 +45,6 @@ public class Gallina {
 		this.huevosPuestos = huevosPuestos;
 		this.colorPlumas = colorPlumas;
 	}
-
-	/**
-	 * Añade en 1 la cantidad de huevos puestos por la gallina
-	 */
-	public void ponerHuevo (){
-		huevosPuestos++;
-	}
-
 	/**
 	 * Devuelve el nombre de la gallina
 	 * @return nombre Nombre de la gallina
