@@ -2,6 +2,7 @@ package catalogogallinas;
 
 /**
  * Se lanza cuando se escribe por consola un texto incorrecto
+ * @author Arturo Gregori
  */
 public class ExcepcionES extends RuntimeException {
   /**

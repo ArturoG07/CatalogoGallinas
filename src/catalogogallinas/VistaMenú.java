@@ -7,6 +7,7 @@ import java.util.Scanner;
 
 /**
  * Clase para creacion de menús
+ * @author Arturo Gregori
  */
 public class VistaMenú {
 	/**

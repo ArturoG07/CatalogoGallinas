@@ -9,6 +9,7 @@ import java.util.List;
  * de texto usando gallinas. Gestiona un catálogo de gallinas con
  * operaciones como mostrar, cambiar, modificar, listar, añadir,
  * exportar e importar gallinas.
+ * @author Arturo Gregori
  */
 public class ControlCatalogoGallinas {
 	/**

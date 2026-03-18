@@ -7,6 +7,7 @@ import java.util.Scanner;
 
 /**
  * Vista general para la gestion de las tablas de multiplicar
+ * @author Arturo Gregori
  */
 public class VistaGeneral {
 	/**

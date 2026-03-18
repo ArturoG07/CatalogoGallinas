@@ -7,6 +7,7 @@ import java.util.List;
 
 /**
  * Exportacion de contenidos a un archivo
+ * @author Arturo Gregori
  */
 public class ExportaciónArchivo {
 	/**

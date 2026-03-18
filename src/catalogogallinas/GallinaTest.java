@@ -2,11 +2,19 @@ package catalogogallinas;
 
 import org.junit.jupiter.api.Test;
 import java.util.List;
-
 import static org.junit.jupiter.api.Assertions.*;
 
+/**
+ * Clase de pruebas unitarias para la clase {@link Gallina}.
+ *
+ * @author Arturo Gregori
+ */
 public class GallinaTest {
 
+	/**
+	 * Prueba el constructor de {@link Gallina} y los métodos getters.
+	 * Verifica que los atributos se inicializan correctamente.
+	 */
 	@Test
 	void testConstructorYGetters() {
 		Gallina g = new Gallina("Lola", 2, "Andaluza", 10, "Blanco");
@@ -18,6 +26,10 @@ public class GallinaTest {
 		assertEquals("Blanco", g.getColorPlumas());
 	}
 
+	/**
+	 * Prueba los métodos setters de {@link Gallina}.
+	 * Verifica que los cambios en los atributos se reflejen correctamente.
+	 */
 	@Test
 	void testSetters() {
 		Gallina g = new Gallina("Lola", 2, "Andaluza", 10, "Blanco");
@@ -35,6 +47,11 @@ public class GallinaTest {
 		assertEquals("Negro", g.getColorPlumas());
 	}
 
+	/**
+	 * Prueba la conversión de los atributos de {@link Gallina} a una lista de strings
+	 * mediante {@link Gallina#toListaExportacion()}.
+	 * Verifica que la lista tenga 5 elementos y que cada atributo sea convertido correctamente.
+	 */
 	@Test
 	void testToListaExportacion() {
 		Gallina g = new Gallina("Lola", 2, "Andaluza", 10, "Blanco");
@@ -49,6 +66,10 @@ public class GallinaTest {
 		assertEquals("Blanco", lista.get(4));
 	}
 
+	/**
+	 * Prueba que los valores numéricos (edad y huevos) se exporten correctamente
+	 * como strings incluso si son 0.
+	 */
 	@Test
 	void testToListaExportacionFormatoNumeros() {
 		Gallina g = new Gallina("A", 0, "Raza", 0, "Color");
@@ -59,6 +80,10 @@ public class GallinaTest {
 		assertEquals("0", lista.get(3)); // huevos
 	}
 
+	/**
+	 * Verifica que los cambios realizados a la gallina se reflejen
+	 * en la lista devuelta por {@link Gallina#toListaExportacion()}.
+	 */
 	@Test
 	void testCambiosReflejadosEnListaExportacion() {
 		Gallina g = new Gallina("Lola", 2, "Andaluza", 10, "Blanco");

@@ -3,6 +3,7 @@ package catalogogallinas;
 /**
  * Lanzador de aplicación de consola de texto con menús. Aplicación
  * de texto usando catalogo de gallinas.
+ * @author Arturo Gregori
  */
 public class LanzadorCatalogoGallinas {
 	/**

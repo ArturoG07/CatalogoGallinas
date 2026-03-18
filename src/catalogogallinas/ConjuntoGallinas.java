@@ -5,6 +5,7 @@ import java.util.List;
 
 /**
  * Guarda un conjunto de gallinas y sus metodos
+ * @author Arturo Gregori
  */
 public class ConjuntoGallinas {
 	/**

@@ -8,6 +8,7 @@ import java.util.List;
 
 /**
  * Importación de contenidos desde un archivo
+ * @author Arturo Gregori
  */
 public class ImportacionArchivo {
 	/**

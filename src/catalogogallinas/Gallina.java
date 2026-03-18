@@ -6,6 +6,7 @@ import java.util.List;
 /**
  * Representa una gallina con atributos como nombre, edad, raza, huevos puestos y color de plumas.
  * Esta clase es un modelo simple para almacenar información sobre una gallina.
+ * @author Arturo Gregori
  */
 public class Gallina {
 	/**
