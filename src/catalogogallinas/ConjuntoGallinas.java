@@ -187,9 +187,24 @@ public class ConjuntoGallinas {
 	}
 
 	/**
+	 * Elimina una gallina del conjunto
+	 * @param pos Posicion de la gallina a eliminar
+	 */
+	public void eliminarGallina(int pos) {
+		try {
+			gallinas.remove(pos);
+		}
+		catch (IndexOutOfBoundsException e) {
+			vistaGeneral.mostrarAviso("No se ha encontrado la gallina en la posición indicada");
+		}
+	}
+
+	/**
 	 * Muestra un aviso cuando se selecciona una opción no disponible.
 	 */
 	public void opciónNoDisponible() {
 		vistaGeneral.mostrarAviso("Opción no disponible");
 	}
+
+
 }

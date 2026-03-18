@@ -98,4 +98,24 @@ public class Gallina {
 	public String getColorPlumas() {
 		return colorPlumas;
 	}
+
+	public void setNombre(String nombre) {
+		this.nombre = nombre;
+	}
+
+	public void setEdad(int edad) {
+		this.edad = edad;
+	}
+
+	public void setRaza(String raza) {
+		this.raza = raza;
+	}
+
+	public void setHuevosPuestos(int huevosPuestos) {
+		this.huevosPuestos = huevosPuestos;
+	}
+
+	public void setColorPlumas(String colorPlumas) {
+		this.colorPlumas = colorPlumas;
+	}
 }
