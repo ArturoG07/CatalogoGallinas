@@ -1,4 +1,5 @@
 package catalogogallinas;
+
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -205,19 +206,93 @@ public class ControlCatalogoGallinas {
 	}
 
 	/**
-	 * Exporta la lista completa de gallinas a un archivo. (Método no implementado)
+	 * Exporta la lista completa de gallinas a un archivo de texto.
+	 * Cada línea contiene los datos de una gallina separados por comas.
 	 */
-	public void exportarListaGallinas() {}
+	public void exportarListaGallinas() {
+		ExportaciónArchivo export = new ExportaciónArchivo("listadoGallinas.txt");
+		List<String> contenidos = new ArrayList<>();
+		
+		for (Gallina g : gallinas) {
+			List<String> datosGallina = g.toListaExportacion();
+			contenidos.add(String.join(",", datosGallina));
+		}
+		
+		if (contenidos.isEmpty()) {
+			vistaGeneral.mostrarAviso("No hay gallinas para exportar");
+		} else {
+			export.guardar(contenidos);
+			vistaGeneral.mostrarAviso("Lista de gallinas exportada correctamente a 'listadoGallinas.txt'");
+		}
+	}
 
 	/**
-	 * Importa una lista de gallinas desde un archivo. (Método no implementado)
+	 * Importa una lista de gallinas desde un archivo de texto.
+	 * Cada línea debe contener los datos de una gallina separados por comas.
 	 */
-	public void importarListaGallinas() {}
+	public void importarListaGallinas() {
+		ImportacionArchivo importar = new ImportacionArchivo("listadoGallinas.txt");
+		List<String> lineas = importar.cargar();
+		
+		if (lineas.isEmpty()) {
+			vistaGeneral.mostrarAviso("No se pudo cargar el archivo o está vacío");
+			return;
+		}
+		
+		int contadorCargadas = 0;
+		for (String linea : lineas) {
+			String[] datos = linea.split(",");
+			if (datos.length == 5) {
+				try {
+					String nombre = datos[0];
+					int edad = Integer.parseInt(datos[1]);
+					String raza = datos[2];
+					int huevosPuestos = Integer.parseInt(datos[3]);
+					String colorPlumas = datos[4];
+					
+					Gallina gallinaImportada = new Gallina(nombre, edad, raza, huevosPuestos, colorPlumas);
+					gallinas.add(gallinaImportada);
+					gallina = gallinaImportada;
+					contadorCargadas++;
+				} catch (NumberFormatException e) {
+					System.err.println("Error al parsear la línea: " + linea);
+				}
+			}
+		}
+		
+		vistaGeneral.mostrarAviso("Se cargaron " + contadorCargadas + " gallinas correctamente");
+	}
 
 	/**
-	 * Importa una gallina individual desde un archivo. (Método no implementado)
+	 * Importa una gallina individual desde un archivo específico.
+	 * El usuario debe proporcionar el nombre de la gallina a importar.
 	 */
-	public void importarGallinaIndividual() {}
+	public void importarGallinaIndividual() {
+		String nombreGallina = vistaGeneral.pedirTexto("Introduce el nombre de la gallina a importar");
+		String rutaArchivo = String.format(FORMATO_RUTA_ARCHIVO_EXPORTACIÓN, nombreGallina);
+		ImportacionArchivo importar = new ImportacionArchivo(rutaArchivo);
+		List<String> lineas = importar.cargar();
+		
+		if (lineas.isEmpty()) {
+			vistaGeneral.mostrarAviso("No se pudo cargar el archivo: " + rutaArchivo);
+			return;
+		}
+		
+		try {
+			String nombre = lineas.get(0);
+			int edad = Integer.parseInt(lineas.get(1));
+			String raza = lineas.get(2);
+			int huevosPuestos = Integer.parseInt(lineas.get(3));
+			String colorPlumas = lineas.get(4);
+			
+			Gallina gallinaImportada = new Gallina(nombre, edad, raza, huevosPuestos, colorPlumas);
+			gallinas.add(gallinaImportada);
+			gallina = gallinaImportada;
+			vistaGeneral.mostrarAviso("Gallina '" + nombre + "' importada correctamente");
+		} catch (IndexOutOfBoundsException | NumberFormatException e) {
+			vistaGeneral.mostrarAviso("Error al importar la gallina. Formato incorrecto en el archivo");
+		}
+	}
 
 	/**
 	 * Muestra un aviso cuando se selecciona una opción no disponible.
