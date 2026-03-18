@@ -1,0 +1,132 @@
+@startuml
+' ===============================================
+' Diagrama UML completo del paquete catalogogallinas
+' ===============================================
+
+' Definición de la clase ConjuntoGallinas
+class ConjuntoGallinas {
+    +static final String FORMATO_RUTA_ARCHIVO_IMPORTACION
+    -List<Gallina> gallinas
+    -VistaGeneral vistaGeneral
+    +ConjuntoGallinas()
+    +Gallina seleccionarGallina(int posicion)
+    +int buscarGallina(String nombre)
+    +void añadirGallina(Gallina gallina)
+    +void cambiarGallina()
+    +void listarGallinas()
+    +void añadirGallinaManualmente()
+    +void exportarListaGallinas()
+    +void importarListaGallinas()
+    +void importarGallinaIndividual()
+    +void eliminarGallina(int pos)
+    +void opciónNoDisponible()
+}
+
+' Definición de la clase Gallina
+class Gallina {
+    -String nombre
+    -int edad
+    -String raza
+    -int huevosPuestos
+    -String colorPlumas
+    +Gallina(String nombre, int edad, String raza, int huevosPuestos, String colorPlumas)
+    +String getNombre()
+    +void setNombre(String nombre)
+    +int getEdad()
+    +void setEdad(int edad)
+    +String getRaza()
+    +void setRaza(String raza)
+    +int getHuevosPuestos()
+    +void setHuevosPuestos(int huevosPuestos)
+    +String getColorPlumas()
+    +void setColorPlumas(String colorPlumas)
+    +List<String> toListaExportacion()
+}
+
+' Definición de la clase VistaMenú
+class VistaMenú {
+    -String titulo
+    -List<String> opciones
+    +VistaMenú(String titulo, List<String> opciones)
+    +void mostrarTitulo()
+    +void mostrarOpciones()
+    +int pedirOpcion()
+}
+
+' Definición de la clase VistaGeneral
+class VistaGeneral {
+    -String FORMATO_PRINTF_MOSTRARTEXTO
+    -String FORMATO_PRINTF_MOSTRARAVISO
+    +VistaGeneral()
+    +void mostrarTexto(String texto)
+    +void mostrarAviso(String texto)
+    +void mostrarTitulo(String titulo)
+    +void mostrarTitulo2(String texto)
+    +int pedirNúmero(String texto)
+    +void pausa(String texto)
+    +boolean pedirConfirmacion(String texto)
+    +void mostrarLista(List<String> lista)
+    +Scanner getScEntrada()
+    +String pedirTexto(String texto)
+}
+
+' Definición de la clase LanzadorCatalogoGallinas
+class LanzadorCatalogoGallinas {
+    +static void main(String[] argumentos)
+}
+
+' Definición de la clase ImportacionArchivo
+class ImportacionArchivo {
+    -Path refArchivo
+    +ImportacionArchivo(String rutaArchivo)
+    +List<String> cargar()
+}
+
+' Definición de la clase ExportaciónArchivo
+class ExportaciónArchivo {
+    -Path refArchivo
+    +ExportaciónArchivo(String rutaArchivo)
+    +void guardar(List<String> contenidos)
+}
+
+' Definición de la clase ControlCatalogoGallinas
+class ControlCatalogoGallinas {
+    +static final String FORMATO_RUTA_ARCHIVO_EXPORTACIÓN
+    -List<String> OPCIONES_MENÚ_PRINCIPAL
+    -ConjuntoGallinas gallinas
+    -Gallina gallina
+    -VistaGeneral vistaGeneral
+    +ControlCatalogoGallinas()
+    +void init()
+    +void buclePrincipal()
+    +void mostrarGallina()
+    +void exportarGallina()
+    +void modificarGallina()
+    +void borrarGallina()
+}
+
+' Definición de la clase ExcepcionES
+class ExcepcionES {
+    +ExcepcionES(String message)
+}
+
+' ===============================================
+' Relaciones
+' ===============================================
+ConjuntoGallinas --> Gallina : contiene >
+ConjuntoGallinas --> VistaGeneral : usa >
+ConjuntoGallinas --> ExportaciónArchivo : usa >
+ConjuntoGallinas --> ImportacionArchivo : usa >
+
+ControlCatalogoGallinas --> ConjuntoGallinas : usa >
+ControlCatalogoGallinas --> Gallina : usa >
+ControlCatalogoGallinas --> VistaGeneral : usa >
+ControlCatalogoGallinas --> VistaMenú : usa >
+ControlCatalogoGallinas --> ExportaciónArchivo : usa >
+
+VistaMenú --> ExcepcionES : lanza >
+VistaMenú --> VistaGeneral : opcional/usa >
+
+LanzadorCatalogoGallinas --> ControlCatalogoGallinas : usa >
+
+@enduml
