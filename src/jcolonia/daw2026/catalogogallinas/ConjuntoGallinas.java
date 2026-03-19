@@ -68,11 +68,12 @@ public class ConjuntoGallinas {
 
 	/**
 	 * Cambia la gallina activa por otra existente en la lista, basada en el nombre proporcionado por el usuario.
+	 * @return Gallina seleccionada
 	 */
-	public void cambiarGallina() {
+	public Gallina cambiarGallina() {
 		listarGallinas();
 		String nombreGallina = vistaGeneral.pedirTexto("Introduce el nombre de la gallina a mostrar");
-		seleccionarGallina(buscarGallina(nombreGallina));
+		return seleccionarGallina(buscarGallina(nombreGallina));
 	}
 
 	/**

@@ -93,7 +93,7 @@ public class ControlCatalogoGallinas {
 					mostrarGallina();
 					break;
 				case 2:
-					gallinas.cambiarGallina();
+					gallina = gallinas.cambiarGallina();
 					break;
 				case 3:
 					modificarGallina();
