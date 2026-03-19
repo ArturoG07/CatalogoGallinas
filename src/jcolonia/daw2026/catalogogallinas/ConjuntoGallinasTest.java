@@ -1,4 +1,4 @@
-package catalogogallinas;
+package jcolonia.daw2026.catalogogallinas;
 
 import static org.junit.jupiter.api.Assertions.*;
 

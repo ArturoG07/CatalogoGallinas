@@ -1,4 +1,4 @@
-package catalogogallinas;
+package jcolonia.daw2026.catalogogallinas;
 
 /**
  * Se lanza cuando se escribe por consola un texto incorrecto

@@ -1,4 +1,4 @@
-package catalogogallinas;
+package jcolonia.daw2026.catalogogallinas;
 
 /**
  * Lanzador de aplicación de consola de texto con menús. Aplicación
